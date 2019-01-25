@@ -68,6 +68,7 @@ class KinulabSonataGentellelaThemeExtension extends Extension implements Prepend
                     'button_history'                => '@KinulabSonataGentellelaTheme/Button/history_button.html.twig',
                     'button_list'                   => '@KinulabSonataGentellelaTheme/Button/list_button.html.twig',
                     'button_show'                   => '@KinulabSonataGentellelaTheme/Button/show_button.html.twig',
+                    'action_create'                 => '@KinulabSonataGentellelaTheme/CRUD/dashboard__action_create.html.twig',
                 ],
                 'assets'    => [
                     'stylesheets'   => [
