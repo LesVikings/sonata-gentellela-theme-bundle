@@ -13,26 +13,32 @@ file that was distributed with this source code.
 {% block title %}{{ 'title_select_subclass'|trans({}, 'SonataAdminBundle') }}{% endblock %}
 
 {% block content %}
-    <div class="box box-success">
-        <div class="box-header">
-            <h3 class="box-title">
-                {{ block('title') }}
-            </h3>
-        </div>
-        <div class="box-body">
-            {% for subclass in admin.subclasses|keys %}
-                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                    <a href="{{ admin.generateUrl(action, {'subclass': subclass }) }}"
-                       class="btn btn-app btn-block"
-                            >
-                        <i class="fa fa-plus-square"></i>
-                        {{ subclass|trans({}, admin.translationdomain|default('SonataAdminBundle')) }}
-                    </a>
-                </div>
-            {% else %}
-                <span class="alert alert-info">{{ 'no_subclass_available'|trans({}, 'SonataAdminBundle') }}</span>
-            {% endfor %}
+    <div class="x_panel">
+        <h3 class="x_title">
+            {{ block('title') }}
+        </h3>
+        <div class="x_content">
+            <div class="row">
+                {% for subclass in admin.subclasses|keys %}
+                    {% set subclass_label = subclass ~ '.label' %}
+                    {% set subclass_icon = subclass ~ '.icon' %}
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                        <a href="{{ admin.generateUrl(action, {'subclass': subclass }) }}"
+                           class="btn btn-app btn-block"
+                        >
+                            <i class="fa {{ subclass_icon|trans({}, admin.translationdomain|default('SonataAdminBundle')) }}"></i>
+                            {{ subclass_label|trans({}, admin.translationdomain|default('SonataAdminBundle')) }}
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i>
+                        <strong>{{ 'no_subclass_available'|trans({}, 'SonataAdminBundle') }}</strong>
+                    </div>
+                {% endfor %}
+            </div>
             <div class="clearfix"></div>
         </div>
     </div>
 {% endblock %}
+
