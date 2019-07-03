@@ -53,7 +53,7 @@ file that was distributed with this source code.
                 {% block list_header %}{% endblock %}
 
                 {% if admin.datagrid.results|length > 0 %}
-                    <table class="table table-bordered table-striped sonata-ba-list">
+                    <table class="table table-bordered table-striped sonata-ba-list jambo_table{{ (admin.hasRoute('batch') and batchactions|length) ? ' bulk_action' }}">
                         {% block table_header %}
                             <thead>
                                 <tr class="sonata-ba-list-field-header">

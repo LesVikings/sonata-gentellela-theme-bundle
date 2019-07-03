@@ -70,3 +70,8 @@
 .sonata-bc.nav-sm .project-link{
     display: none;
 }
+
+table.jambo_table  thead th a {
+    color: #ECF0F1;
+}
+
